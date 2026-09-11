@@ -24,11 +24,11 @@ const icons = {
   ),
 }
 
-const colors = [
-  'bg-blue-50 text-blue-600',
-  'bg-sky-50 text-sky-600',
-  'bg-indigo-50 text-indigo-600',
-  'bg-teal-50 text-teal-600',
+const styles = [
+  { icon: 'text-blue-600', bg: 'bg-blue-50', border: 'hover:border-blue-200', glow: 'hover:shadow-blue-100' },
+  { icon: 'text-sky-600',  bg: 'bg-sky-50',  border: 'hover:border-sky-200',  glow: 'hover:shadow-sky-100'  },
+  { icon: 'text-indigo-600', bg: 'bg-indigo-50', border: 'hover:border-indigo-200', glow: 'hover:shadow-indigo-100' },
+  { icon: 'text-teal-600', bg: 'bg-teal-50',  border: 'hover:border-teal-200',  glow: 'hover:shadow-teal-100' },
 ]
 
 export default function ServicesSection() {
@@ -36,24 +36,25 @@ export default function ServicesSection() {
   const items = ['coordinator', 'translation', 'booking', 'support']
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
+          <p className="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Our Services</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">{t('title')}</h2>
-          <p className="text-slate-500 text-lg">{t('subtitle')}</p>
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">{t('subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((key, i) => (
             <div
               key={key}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              className={`group bg-white rounded-2xl p-6 border border-slate-100 ${styles[i].border} hover:shadow-xl ${styles[i].glow} hover:-translate-y-1 transition-all duration-300 cursor-default`}
             >
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${colors[i]}`}>
+              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${styles[i].bg} ${styles[i].icon} group-hover:scale-110 transition-transform duration-300`}>
                 {icons[key]}
               </div>
               <h3 className="font-bold text-slate-900 text-lg mb-2">{t(`items.${key}.title`)}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{t(`items.${key}.desc`)}</p>
+              <p className="text-slate-400 text-sm leading-relaxed">{t(`items.${key}.desc`)}</p>
             </div>
           ))}
         </div>
