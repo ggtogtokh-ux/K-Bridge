@@ -48,12 +48,12 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href={localePath('/')} className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10 animate-bird-float rounded-full bg-slate-100 overflow-hidden">
+            <div className="relative w-10 h-10 animate-bird-float">
               <Image
                 src="/logo-bird.png"
                 alt="경청 INC"
                 fill
-                className="object-contain scale-90"
+                className="object-contain"
               />
             </div>
             <div className="flex flex-col leading-tight">
