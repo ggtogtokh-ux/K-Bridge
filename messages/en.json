@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "hospitals": "Hospitals",
+    "hostel": "Hostel",
+    "specialties": "Specialties",
+    "pricing": "Pricing",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "badge": "Korean Medical Service",
+    "title": "Your Trusted Gateway\nto Korean Healthcare",
+    "subtitle": "K-Bridge helps you find the right hospital in Korea. With Mongolian-speaking coordinators, translation services, and full support.",
+    "cta": "Get Free Consultation",
+    "cta2": "View Hospitals",
+    "stats": {
+      "hospitals": "Hospitals",
+      "patients": "Patients",
+      "specialties": "Specialties",
+      "years": "Years"
+    }
+  },
+  "services": {
+    "title": "Why Choose K-Bridge?",
+    "subtitle": "We put your health as our top priority",
+    "items": {
+      "coordinator": {
+        "title": "1:1 Coordinator",
+        "desc": "A dedicated coordinator handles everything for you"
+      },
+      "translation": {
+        "title": "Translation",
+        "desc": "Full translation of consultations and documents"
+      },
+      "booking": {
+        "title": "Appointment Booking",
+        "desc": "Easily book appointments online"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "desc": "Ask questions anytime, any day"
+      }
+    }
+  },
+  "hospitals": {
+    "title": "Partner Hospitals",
+    "subtitle": "Government-certified medical institutions",
+    "viewAll": "View All"
+  },
+  "specialties": {
+    "title": "Medical Specialties",
+    "subtitle": "We specialize in various medical fields"
+  },
+  "reviews": {
+    "title": "Success Stories",
+    "subtitle": "Experiences from our patients"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? Get in touch with us",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send",
+    "kakao": "KakaoTalk",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "desc": "Your trusted bridge to Korean medical services",
+    "rights": "All rights reserved"
+  }
+}
