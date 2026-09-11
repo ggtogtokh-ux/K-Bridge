@@ -85,26 +85,32 @@ export default function HeroSection() {
 
           {/* Right — flying bird */}
           <div className="hidden lg:flex items-center justify-center">
-            <div className="relative w-96 h-96">
-              {/* Glow ring behind bird */}
-              <div className="absolute inset-8 rounded-full bg-blue-500/10 blur-2xl animate-shimmer" />
-              <div className="absolute inset-16 rounded-full bg-white/5 blur-xl animate-shimmer" style={{ animationDelay: '1s' }} />
+            <div className="relative">
+              {/* Outer glow rings */}
+              <div className="absolute -inset-8 rounded-full bg-blue-400/10 blur-3xl animate-shimmer" />
+              <div className="absolute -inset-4 rounded-full bg-white/5 blur-xl animate-shimmer" style={{ animationDelay: '1.5s' }} />
 
-              {/* Bird */}
-              <div className="relative w-full h-full animate-bird-soar drop-shadow-2xl">
-                <Image
-                  src="/logo-bird.png"
-                  alt="경청 INC"
-                  fill
-                  className="object-contain brightness-0 invert opacity-90"
-                  priority
-                />
+              {/* Circle container */}
+              <div className="animate-bird-soar relative w-80 h-80 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl flex items-center justify-center overflow-hidden">
+                {/* Inner soft gradient */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-white/5 to-transparent" />
+                {/* Bird image */}
+                <div className="relative w-64 h-64">
+                  <Image
+                    src="/logo-bird.png"
+                    alt="경청 INC"
+                    fill
+                    className="object-contain drop-shadow-lg"
+                    priority
+                  />
+                </div>
               </div>
 
-              {/* Floating dots around bird */}
-              <div className="absolute top-8 right-12 w-2 h-2 rounded-full bg-blue-400/60 animate-shimmer" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute bottom-12 left-8 w-3 h-3 rounded-full bg-sky-300/40 animate-shimmer" style={{ animationDelay: '1.5s' }} />
-              <div className="absolute top-1/2 right-4 w-1.5 h-1.5 rounded-full bg-white/50 animate-shimmer" style={{ animationDelay: '2s' }} />
+              {/* Floating dots */}
+              <div className="absolute -top-2 right-10 w-3 h-3 rounded-full bg-blue-300/70 animate-shimmer" />
+              <div className="absolute bottom-4 -left-4 w-4 h-4 rounded-full bg-sky-200/50 animate-shimmer" style={{ animationDelay: '1s' }} />
+              <div className="absolute top-1/3 -right-6 w-2 h-2 rounded-full bg-white/60 animate-shimmer" style={{ animationDelay: '2s' }} />
+              <div className="absolute -bottom-4 right-1/3 w-2.5 h-2.5 rounded-full bg-blue-200/60 animate-shimmer" style={{ animationDelay: '0.7s' }} />
             </div>
           </div>
         </div>
