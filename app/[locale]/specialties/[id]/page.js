@@ -9,7 +9,7 @@ export function generateStaticParams() {
 }
 
 export default async function SpecialtyDetailPage({ params }) {
-  const { locale, id } = params
+  const { locale, id } = await params
   const specialty = specialties.find((s) => s.id === id)
   if (!specialty) notFound()
 

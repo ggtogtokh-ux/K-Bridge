@@ -8,7 +8,7 @@ export function generateStaticParams() {
 }
 
 export default async function HospitalDetailPage({ params }) {
-  const { locale, id } = params
+  const { locale, id } = await params
   const hospital = hospitals.find((h) => String(h.id) === id)
   if (!hospital) notFound()
 

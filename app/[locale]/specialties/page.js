@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 
 export default async function SpecialtiesPage({ params }) {
-  const { locale } = params
+  const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'pages.specialties' })
 
   const getName = (s) => {
