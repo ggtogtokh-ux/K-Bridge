@@ -7,6 +7,12 @@ export default function SpecialtiesSection() {
   const t = useTranslations('specialties')
   const locale = useLocale()
 
+  const getName = (s) => {
+    if (locale === 'mn') return s.labelMn
+    if (locale === 'ko') return s.labelKo
+    return s.label
+  }
+
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,9 +37,8 @@ export default function SpecialtiesSection() {
               </div>
               <div className="p-3 text-center">
                 <div className="font-semibold text-slate-800 text-xs group-hover:text-blue-600 transition-colors leading-tight">
-                  {s.label}
+                  {getName(s)}
                 </div>
-                <div className="text-slate-400 text-xs mt-0.5 leading-tight">{s.labelMn}</div>
               </div>
             </Link>
           ))}

@@ -5,7 +5,12 @@ import { featuredHospitals } from '@/data/hospitals'
 
 export default function HospitalsSection() {
   const t = useTranslations('hospitals')
+  const tPages = useTranslations('pages.hospitals')
   const locale = useLocale()
+
+  const getName = (h) => locale === 'ko' ? h.nameKo : h.name
+  const getSpecialty = (h) => locale === 'mn' ? h.specialtyMn : h.specialty
+  const getDesc = (h) => locale === 'mn' ? h.descMn : h.desc
 
   return (
     <section className="py-20 bg-white">
@@ -44,7 +49,7 @@ export default function HospitalsSection() {
               <div className="p-5">
                 <div className="flex items-start justify-between gap-2 mb-1">
                   <div>
-                    <h3 className="font-bold text-slate-900 text-sm leading-tight">{h.name}</h3>
+                    <h3 className="font-bold text-slate-900 text-sm leading-tight">{getName(h)}</h3>
                     <p className="text-slate-400 text-xs mt-0.5">{h.nameKo}</p>
                   </div>
                   <div className="flex items-center gap-1 bg-amber-50 text-amber-600 text-xs font-semibold px-2 py-1 rounded-full shrink-0">
@@ -53,8 +58,8 @@ export default function HospitalsSection() {
                   </div>
                 </div>
 
-                <p className="text-blue-600 text-xs font-medium mt-2">{h.specialty}</p>
-                <p className="text-slate-500 text-xs mt-2 leading-relaxed line-clamp-2">{h.descMn}</p>
+                <p className="text-blue-600 text-xs font-medium mt-2">{getSpecialty(h)}</p>
+                <p className="text-slate-500 text-xs mt-2 leading-relaxed line-clamp-2">{getDesc(h)}</p>
 
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
                   <span className="flex items-center text-xs text-slate-500">
@@ -64,7 +69,7 @@ export default function HospitalsSection() {
                     </svg>
                     {h.location}
                   </span>
-                  <span className="text-blue-600 text-xs font-semibold">Дэлгэрэнгүй →</span>
+                  <span className="text-blue-600 text-xs font-semibold">{tPages('details')}</span>
                 </div>
               </div>
             </Link>

@@ -73,5 +73,21 @@
   "footer": {
     "desc": "Your trusted bridge to Korean medical services",
     "rights": "All rights reserved"
+  },
+  "pages": {
+    "specialties": {
+      "title": "Medical Specialties",
+      "subtitle": "23 specialized fields at Korea's top hospitals",
+      "back": "All Specialties",
+      "consult": "Get Free Consultation",
+      "relatedHospitals": "Hospitals for this Specialty"
+    },
+    "hospitals": {
+      "title": "Partner Hospitals",
+      "subtitle": "government-certified hospitals in the K-Bridge network",
+      "back": "All Hospitals",
+      "book": "Book Appointment",
+      "details": "Details →"
+    }
   }
 }
