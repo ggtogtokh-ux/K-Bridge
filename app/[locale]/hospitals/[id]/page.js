@@ -81,12 +81,16 @@ export default async function HospitalDetailPage({ params }) {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-slate-500 text-sm mb-5">
-            <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+          <div className="flex items-start gap-2 text-slate-500 text-sm mb-5">
+            <svg className="w-4 h-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            {hospital.location}
+            <span>
+              {hospital.address
+                ? (locale === 'ko' ? hospital.address.ko : hospital.address.en || hospital.address.ko)
+                : hospital.location}
+            </span>
           </div>
 
           <p className="text-slate-600 leading-relaxed mb-6">{getDesc(hospital)}</p>
@@ -130,21 +134,58 @@ export default async function HospitalDetailPage({ params }) {
         </div>
       </div>
 
+      {/* Address */}
+      {hospital.address && (
+        <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm mb-6">
+          <h2 className="text-lg font-bold text-slate-900 mb-4">
+            {locale === 'mn' ? 'Хаяг' : locale === 'ko' ? '주소' : 'Address'}
+          </h2>
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div>
+              <p className="text-slate-800 font-medium text-sm">{hospital.address.ko}</p>
+              {hospital.address.en && hospital.address.en !== hospital.address.ko && (
+                <p className="text-slate-500 text-sm mt-0.5">{hospital.address.en}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Medical Team */}
       <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm mb-6">
-        <h2 className="text-lg font-bold text-slate-900 mb-2">
+        <h2 className="text-lg font-bold text-slate-900 mb-6">
           {locale === 'mn' ? 'Эмнэлгийн баг' : locale === 'ko' ? '의료팀' : 'Medical Team'}
         </h2>
-        <p className="text-slate-500 text-sm leading-relaxed">
-          {locale === 'mn'
-            ? 'Энэ эмнэлгийн эмч нар болон тусгай мэргэжилтнүүдийн мэдээллийг авахын тулд бидэнтэй холбоо барина уу.'
-            : locale === 'ko'
-            ? '해당 병원의 의료진 및 전문의 정보는 문의를 통해 확인하실 수 있습니다.'
-            : 'Contact us to receive detailed information about the medical team and specialists at this hospital.'}
-        </p>
+        {hospital.doctors && hospital.doctors.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {hospital.doctors.map((doc) => (
+              <div key={doc.name} className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl">
+                <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 font-bold text-sm">
+                  {doc.name.split(' ').map(w => w[0]).slice(0, 2).join('')}
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-sm">{doc.name}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{doc.credential}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-slate-500 text-sm leading-relaxed">
+            {locale === 'mn'
+              ? 'Энэ эмнэлгийн эмч нарын дэлгэрэнгүй мэдээллийг авахын тулд бидэнтэй холбоо барина уу.'
+              : locale === 'ko'
+              ? '해당 병원의 의료진 정보는 문의를 통해 확인하실 수 있습니다.'
+              : 'Contact us to receive detailed information about the medical team at this hospital.'}
+          </p>
+        )}
         <Link
           href={`/${locale}/contact`}
-          className="inline-flex items-center gap-2 mt-4 text-blue-600 text-sm font-semibold hover:underline"
+          className="inline-flex items-center gap-2 mt-6 text-blue-600 text-sm font-semibold hover:underline"
         >
           {locale === 'mn' ? 'Холбоо барих' : locale === 'ko' ? '문의하기' : 'Get in touch'}
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
