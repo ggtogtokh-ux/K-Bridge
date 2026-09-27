@@ -19,14 +19,22 @@ export default function SpecialtiesSection() {
           {specialties.map((s) => (
             <Link
               key={s.id}
-              href={`/${locale}/specialties#${s.id}`}
-              className="bg-white rounded-2xl p-4 text-center hover:shadow-md hover:-translate-y-0.5 transition-all border border-slate-100 group"
+              href={`/${locale}/specialties/${s.id}`}
+              className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-md hover:-translate-y-0.5 transition-all group"
             >
-              <div className="text-3xl mb-2">{s.icon}</div>
-              <div className="font-semibold text-slate-800 text-xs group-hover:text-blue-600 transition-colors leading-tight">
-                {s.label}
+              <div className="h-24 overflow-hidden bg-slate-50">
+                <img
+                  src={s.image}
+                  alt={s.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <div className="text-slate-400 text-xs mt-0.5 leading-tight">{s.labelMn}</div>
+              <div className="p-3 text-center">
+                <div className="font-semibold text-slate-800 text-xs group-hover:text-blue-600 transition-colors leading-tight">
+                  {s.label}
+                </div>
+                <div className="text-slate-400 text-xs mt-0.5 leading-tight">{s.labelMn}</div>
+              </div>
             </Link>
           ))}
         </div>

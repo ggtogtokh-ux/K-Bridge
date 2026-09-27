@@ -1,3 +1,5 @@
+const BASE = 'https://kmedicalservice.com'
+
 export const specialties = [
   {
     id: 'health-screening',
@@ -7,6 +9,7 @@ export const specialties = [
     labelMn: 'Эрүүл мэндийн үзлэг',
     desc: 'Comprehensive checkups and preventive diagnostics',
     descMn: 'Иж бүрэн эрүүл мэндийн үзлэг, урьдчилан сэргийлэх оношлогоо',
+    image: `${BASE}/media/procedures/a703e2c1-e85a-4a72-979c-f59ace0057ef.png`,
   },
   {
     id: 'internal-medicine',
@@ -16,6 +19,7 @@ export const specialties = [
     labelMn: 'Дотоод эмгэг',
     desc: 'General adult medicine and chronic disease care',
     descMn: 'Насанд хүрэгчдийн ерөнхий эмгэг, архаг өвчний эмчилгээ',
+    image: `${BASE}/media/procedures/cce222b8-5d97-4e13-8be6-11655b5e4c6e.png`,
   },
   {
     id: 'plastic-surgery',
@@ -25,6 +29,7 @@ export const specialties = [
     labelMn: 'Гоо сайхны мэс засал',
     desc: 'Aesthetic and reconstructive procedures',
     descMn: 'Гоо сайхны болон сэргээн засах мэс ажилбар',
+    image: `${BASE}/media/procedures/45451906-707a-459c-a399-b6698b81bbf5.png`,
   },
   {
     id: 'dermatology',
@@ -34,6 +39,7 @@ export const specialties = [
     labelMn: 'Арьс судлал',
     desc: 'Skin, laser, anti-aging, and cosmetic dermatology',
     descMn: 'Арьс, лазер, хөгшрөлтөд тэсэх, гоо зүйн арьс судлал',
+    image: `${BASE}/media/procedures/8d1fa933-2283-484f-aeb5-e36e425558d3.png`,
   },
   {
     id: 'dentistry',
@@ -43,6 +49,7 @@ export const specialties = [
     labelMn: 'Шүдний эмч',
     desc: 'Dental implants, orthodontics, and oral care',
     descMn: 'Шүдний имплант, ортодонт, амны хөндийн эмчилгээ',
+    image: `${BASE}/media/procedures/420db6bf-d726-42e6-8cab-312355a2b4fd.png`,
   },
   {
     id: 'ophthalmology',
@@ -52,6 +59,7 @@ export const specialties = [
     labelMn: 'Нүдний эмч',
     desc: 'Vision correction, eye disease, and premium eye care',
     descMn: 'Харааны засвар, нүдний өвчин, нүдний тусгай тусламж',
+    image: `${BASE}/media/procedures/b52a4c2f-92e1-4aef-bf01-9bbae33b94c7.png`,
   },
   {
     id: 'cardiology',
@@ -61,6 +69,7 @@ export const specialties = [
     labelMn: 'Зүрхний эмгэг',
     desc: 'Heart and vascular diagnostics and treatment',
     descMn: 'Зүрх, судасны оношлогоо, эмчилгээ',
+    image: `${BASE}/media/procedures/16849dda-2647-44bd-a174-bb71f761fc1c.png`,
   },
   {
     id: 'oncology',
@@ -70,6 +79,7 @@ export const specialties = [
     labelMn: 'Хавдар судлал',
     desc: 'Cancer care, second opinions, and treatment navigation',
     descMn: 'Хавдрын эмчилгээ, хоёр дахь дүгнэлт, эмчилгээний удирдамж',
+    image: `${BASE}/media/procedures/302aac9e-471b-4fa3-b6d9-bfff9d24436b.png`,
   },
   {
     id: 'orthopedics',
@@ -79,6 +89,7 @@ export const specialties = [
     labelMn: 'Яс, мөчний эмч',
     desc: 'Joint, spine, sports injury, and rehabilitation care',
     descMn: 'Үе мөч, нурууны хэрэг, спортын гэмтэл, сэргээн засах',
+    image: `${BASE}/media/procedures/606f093c-35cc-441c-a674-de1bbfd8e9e0.png`,
   },
   {
     id: 'neurology',
@@ -88,6 +99,7 @@ export const specialties = [
     labelMn: 'Мэдрэлийн эмч',
     desc: 'Brain, nerve, dizziness, tremor, and movement disorder care',
     descMn: 'Тархи, мэдрэл, толгой эргэх, чичрэх, хөдөлгөөний эмгэг',
+    image: `${BASE}/media/procedures/72f5d0b4-64fa-4e7c-831a-4d8052fe7c78.png`,
   },
   {
     id: 'korean-medicine',
@@ -97,6 +109,7 @@ export const specialties = [
     labelMn: 'Солонгос уламжлалт анагаах',
     desc: 'Integrative Korean medicine, acupuncture, and herbal care',
     descMn: 'Уламжлалт анагаах, зүү, ургамлын эмчилгээ',
+    image: `${BASE}/media/procedures/e2ff0882-8bb8-4656-a784-319037f0b23a.png`,
   },
   {
     id: 'obstetrics-gynecology',
@@ -106,6 +119,7 @@ export const specialties = [
     labelMn: 'Эх барих, эмэгтэйчүүд',
     desc: "Women's health, fertility, and gynecologic care",
     descMn: 'Эмэгтэйчүүдийн эрүүл мэнд, үрждэл, эмэгтэйчүүдийн эмгэг',
+    image: `${BASE}/media/procedures/2387ab29-9a83-4212-8995-a618ab370ed0.png`,
   },
   {
     id: 'urology',
@@ -113,8 +127,9 @@ export const specialties = [
     label: 'Urology',
     labelKo: '비뇨의학과',
     labelMn: 'Шээсний замын эмч',
-    desc: 'Urologic disease and men\'s health care',
+    desc: "Urologic disease and men's health care",
     descMn: 'Шээсний замын өвчин, эрэгтэйчүүдийн эрүүл мэнд',
+    image: `${BASE}/media/procedures/13c22d7f-abf0-428e-aa0f-b939cbd555b8.png`,
   },
   {
     id: 'otolaryngology',
@@ -124,6 +139,7 @@ export const specialties = [
     labelMn: 'Чих, хамар, хоолой',
     desc: 'Ear, nose, throat, voice, and sleep-related care',
     descMn: 'Чих, хамар, хоолой, дуу хоолой, нойрны эмчилгээ',
+    image: `${BASE}/media/procedures/a110eba4-e6a5-4968-8cf0-6cc38531995b.png`,
   },
   {
     id: 'pediatrics',
@@ -133,6 +149,7 @@ export const specialties = [
     labelMn: 'Хүүхдийн эмч',
     desc: 'Pediatric and adolescent care',
     descMn: 'Хүүхэд, өсвөр насныханд зориулсан мэргэшсэн тусламж',
+    image: `${BASE}/media/procedures/14bcf27c-538e-4d10-a545-b81debe1d0b9.png`,
   },
   {
     id: 'psychiatry',
@@ -142,6 +159,7 @@ export const specialties = [
     labelMn: 'Сэтгэцийн эмч',
     desc: 'Mental health, stress, sleep, and emotional care',
     descMn: 'Сэтгэцийн эрүүл мэнд, стресс, нойр, сэтгэл хөдлөлийн эмчилгээ',
+    image: `${BASE}/media/procedures/022845db-96dd-40fe-8d07-ac86bd0e4561.png`,
   },
   {
     id: 'rehabilitation',
@@ -151,6 +169,7 @@ export const specialties = [
     labelMn: 'Сэргээн засалт',
     desc: 'Recovery, physical therapy, and functional rehabilitation',
     descMn: 'Эдгэрэлт, биеийн эмчилгээ, үйл ажиллагааны сэргээн засалт',
+    image: `${BASE}/media/procedures/841d0fa2-1574-48c3-9b18-116a4a012f82.png`,
   },
   {
     id: 'hair-transplant',
@@ -160,6 +179,7 @@ export const specialties = [
     labelMn: 'Үс шилжүүлэлт',
     desc: 'Hair restoration and scalp treatment programs',
     descMn: 'Үсний сэргээн засалт, толгойн арьсны эмчилгээ',
+    image: `${BASE}/media/procedures/0cbe9fff-deba-4c87-8e15-37a0e78621b0.png`,
   },
   {
     id: 'fertility',
@@ -169,6 +189,7 @@ export const specialties = [
     labelMn: 'Үрждлийн эмч',
     desc: 'Fertility consultation and reproductive medicine',
     descMn: 'Үрждлийн зөвлөгөө, нөхөн үржихүйн анагаах ухаан',
+    image: `${BASE}/media/procedures/2bde96f3-aff0-41c6-b4bd-4b718752ef61.png`,
   },
   {
     id: 'robotic-surgery',
@@ -178,6 +199,7 @@ export const specialties = [
     labelMn: 'Роботын мэс засал',
     desc: 'Minimally invasive robotic-assisted procedures',
     descMn: 'Бага инвазив роботын тусламжтай мэс ажилбар',
+    image: `${BASE}/media/procedures/e20625e3-98a8-4c7f-a632-8efde7c1d261.png`,
   },
   {
     id: 'transplant-surgery',
@@ -187,6 +209,7 @@ export const specialties = [
     labelMn: 'Эрхтэн шилжүүлэлт',
     desc: 'Complex transplant consultation and surgical programs',
     descMn: 'Эрхтэн шилжүүлэлтийн зөвлөгөө, мэс ажилбарын хөтөлбөр',
+    image: `${BASE}/media/procedures/f0784fda-9e60-43e8-ae7c-820d94ec562b.png`,
   },
   {
     id: 'spine-center',
@@ -196,6 +219,7 @@ export const specialties = [
     labelMn: 'Нурууны мэргэшсэн төв',
     desc: 'Spine disease, pain, and posture correction care',
     descMn: 'Нурууны өвчин, өвдөлт, биеийн байрлалын засвар',
+    image: `${BASE}/media/procedures/ea9a7f52-0745-42bd-ae8b-5aaba61ea9b9.png`,
   },
   {
     id: 'surgery',
@@ -205,5 +229,6 @@ export const specialties = [
     labelMn: 'Мэс засал',
     desc: 'General and specialized surgical consultation',
     descMn: 'Ерөнхий болон мэргэшсэн мэс засал',
+    image: `${BASE}/media/procedures/cfac9862-c892-4836-98c4-2b4e6da2d82b.png`,
   },
 ]

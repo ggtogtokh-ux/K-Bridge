@@ -1,6 +1,9 @@
 import { specialties } from '@/data/specialties'
+import Link from 'next/link'
 
-export default function SpecialtiesPage() {
+export default function SpecialtiesPage({ params }) {
+  const { locale } = params
+
   return (
     <main className="max-w-7xl mx-auto px-4 py-20">
       <div className="text-center mb-14">
@@ -11,25 +14,27 @@ export default function SpecialtiesPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {specialties.map((s) => (
-          <div
+          <Link
             key={s.id}
-            id={s.id}
-            className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            href={`/${locale}/specialties/${s.id}`}
+            className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all group"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl shrink-0">
-                {s.icon}
-              </div>
-              <div>
-                <h2 className="font-bold text-slate-900">{s.label}</h2>
-                <p className="text-slate-400 text-sm">{s.labelKo}</p>
-              </div>
+            <div className="h-36 overflow-hidden bg-slate-50">
+              <img
+                src={s.image}
+                alt={s.label}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
-            <p className="text-slate-600 text-sm font-medium mb-1">{s.labelMn}</p>
-            <p className="text-slate-400 text-sm leading-relaxed">{s.descMn}</p>
-          </div>
+            <div className="p-4">
+              <div className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
+                {s.label}
+              </div>
+              <div className="text-slate-400 text-xs mt-0.5">{s.labelMn}</div>
+            </div>
+          </Link>
         ))}
       </div>
     </main>
