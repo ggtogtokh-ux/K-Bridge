@@ -52,7 +52,8 @@
   },
   "specialties": {
     "title": "진료과목",
-    "subtitle": "다양한 진료 분야를 전문으로 합니다"
+    "subtitle": "한국 최고 병원에서 23개 전문 분야 진료",
+    "viewAll": "전체 진료과목 보기"
   },
   "reviews": {
     "title": "성공 사례",
