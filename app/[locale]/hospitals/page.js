@@ -1,6 +1,9 @@
 import { hospitals } from '@/data/hospitals'
+import Link from 'next/link'
 
-export default function HospitalsPage() {
+export default function HospitalsPage({ params }) {
+  const { locale } = params
+
   return (
     <main className="max-w-7xl mx-auto px-4 py-20">
       <div className="text-center mb-14">
@@ -13,9 +16,10 @@ export default function HospitalsPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {hospitals.map((h) => (
-          <div
+          <Link
             key={h.id}
-            className="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+            href={`/${locale}/hospitals/${h.id}`}
+            className="bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all block"
           >
             <div className="h-44 overflow-hidden bg-slate-50">
               <img
@@ -38,17 +42,20 @@ export default function HospitalsPage() {
               </div>
 
               <p className="text-blue-600 text-xs font-medium mb-2">{h.specialty}</p>
-              <p className="text-slate-500 text-xs leading-relaxed mb-4">{h.descMn}</p>
+              <p className="text-slate-500 text-xs leading-relaxed mb-4 line-clamp-2">{h.descMn}</p>
 
-              <div className="flex items-center pt-3 border-t border-slate-100 text-xs text-slate-500">
-                <svg className="w-3.5 h-3.5 mr-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                {h.location}
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+                <span className="flex items-center text-xs text-slate-500">
+                  <svg className="w-3.5 h-3.5 mr-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {h.location}
+                </span>
+                <span className="text-blue-600 text-xs font-semibold">Дэлгэрэнгүй →</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </main>
