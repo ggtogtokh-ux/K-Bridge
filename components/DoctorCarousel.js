@@ -9,7 +9,7 @@ export default function DoctorCarousel({ doctors, locale }) {
     if (!doctors || doctors.length <= 1) return
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % doctors.length)
-    }, 4000)
+    }, 2000)
     return () => clearInterval(timer)
   }, [doctors])
 
