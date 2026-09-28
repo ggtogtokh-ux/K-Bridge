@@ -13,7 +13,7 @@ export default function HospitalsSection() {
   const getDesc = (h) => locale === 'mn' ? h.descMn : h.desc
 
   return (
-    <section className="py-28 bg-white">
+    <section className="py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
@@ -24,7 +24,7 @@ export default function HospitalsSection() {
           </div>
           <Link
             href={`/${locale}/hospitals`}
-            className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 font-bold px-5 py-2.5 rounded-xl hover:bg-blue-100 transition-colors whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-bold px-5 py-2.5 rounded-xl hover:border-blue-300 hover:text-blue-600 transition-colors whitespace-nowrap shrink-0 shadow-sm"
           >
             {t('viewAll')}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -34,38 +34,37 @@ export default function HospitalsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-          {featuredHospitals.map((h) => (
+          {featuredHospitals.map((h, idx) => (
             <Link
               key={h.id}
               href={`/${locale}/hospitals/${h.id}`}
-              className="group rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 hover:-translate-y-1.5 transition-all duration-300 block bg-white"
+              className="group rounded-3xl overflow-hidden bg-white border border-slate-100 hover:shadow-2xl hover:shadow-slate-300/60 hover:-translate-y-2 transition-all duration-300 block"
             >
-              {/* Image with overlays */}
-              <div className="relative h-56 overflow-hidden bg-slate-100">
+              {/* Image */}
+              <div className="relative overflow-hidden" style={{ height: idx === 0 ? '17rem' : '13rem' }}>
                 <img
                   src={h.image}
                   alt={h.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* Bottom gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-                {/* Rating badge — top right */}
-                <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-400 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full shadow-md">
+                {/* Rating top-right */}
+                <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-400 text-amber-900 text-xs font-black px-2.5 py-1 rounded-full shadow">
                   ★ {h.rating}
                 </div>
 
-                {/* Specialty — bottom left */}
-                <div className="absolute bottom-3 left-3 bg-white/15 backdrop-blur border border-white/25 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                {/* Specialty bottom-left */}
+                <div className="absolute bottom-3 left-3 bg-blue-600/90 backdrop-blur text-white text-xs font-semibold px-3 py-1 rounded-full">
                   {getSpecialty(h).split(', ')[0]}
                 </div>
               </div>
 
               {/* Body */}
               <div className="p-6">
-                <h3 className="font-bold text-slate-900 text-base leading-tight mb-0.5">{getName(h)}</h3>
-                <p className="text-slate-400 text-xs mb-3">{h.nameKo}</p>
-
+                <h3 className="font-black text-slate-900 text-base leading-tight">{getName(h)}</h3>
+                <p className="text-slate-400 text-xs mt-0.5 mb-3">{h.nameKo}</p>
                 <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-5">{getDesc(h)}</p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
