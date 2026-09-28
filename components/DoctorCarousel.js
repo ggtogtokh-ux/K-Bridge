@@ -1,9 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function DoctorCarousel({ doctors, locale }) {
   const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    if (!doctors || doctors.length <= 1) return
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % doctors.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [doctors])
 
   if (!doctors || doctors.length === 0) return null
 
