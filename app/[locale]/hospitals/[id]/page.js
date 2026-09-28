@@ -3,6 +3,7 @@ import { specialties } from '@/data/specialties'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
+import DoctorCarousel from '@/components/DoctorCarousel'
 
 export function generateStaticParams() {
   return hospitals.map((h) => ({ id: String(h.id) }))
@@ -161,19 +162,7 @@ export default async function HospitalDetailPage({ params }) {
           {locale === 'mn' ? 'Эмнэлгийн баг' : locale === 'ko' ? '의료팀' : 'Medical Team'}
         </h2>
         {hospital.doctors && hospital.doctors.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {hospital.doctors.map((doc) => (
-              <div key={doc.name} className="flex items-start gap-3 p-4 bg-slate-50 rounded-2xl">
-                <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 font-bold text-sm">
-                  {doc.name.split(' ').map(w => w[0]).slice(0, 2).join('')}
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-800 text-sm">{doc.name}</p>
-                  <p className="text-slate-500 text-xs mt-0.5">{doc.credential}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <DoctorCarousel doctors={hospital.doctors} locale={locale} />
         ) : (
           <p className="text-slate-500 text-sm leading-relaxed">
             {locale === 'mn'
