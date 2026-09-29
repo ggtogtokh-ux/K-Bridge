@@ -47,9 +47,17 @@ export default function ContactPage() {
   const t = useTranslations('contact')
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    await fetch('/api/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'contact', ...form }),
+    })
+    setLoading(false)
     setSent(true)
   }
 
@@ -181,9 +189,10 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-600/25 text-sm tracking-wide"
+                  disabled={loading}
+                  className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-blue-600/25 text-sm tracking-wide"
                 >
-                  {t('send')}
+                  {loading ? (locale === 'mn' ? 'Илгээж байна...' : locale === 'ko' ? '전송 중...' : 'Sending...') : t('send')}
                 </button>
               </form>
             )}

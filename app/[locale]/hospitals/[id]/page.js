@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import DoctorCarousel from '@/components/DoctorCarousel'
+import HospitalBookingForm from '@/components/HospitalBookingForm'
 
 export function generateStaticParams() {
   return hospitals.map((h) => ({ id: String(h.id) }))
@@ -183,32 +184,8 @@ export default async function HospitalDetailPage({ params }) {
         </Link>
       </div>
 
-      {/* CTA */}
-      <div className="bg-blue-600 rounded-3xl p-8 text-white text-center">
-        <h2 className="text-xl font-bold mb-2">
-          {locale === 'mn'
-            ? `${getName(hospital)}-д эмчилгээ авах`
-            : locale === 'ko'
-            ? `${getName(hospital)}에서 진료 받기`
-            : `Start your journey with ${getName(hospital)}`}
-        </h2>
-        <p className="text-blue-100 text-sm mb-6">
-          {locale === 'mn'
-            ? 'Цаг захиалах болон дэлгэрэнгүй мэдээлэл авахын тулд бидэнтэй холбоо барина уу'
-            : locale === 'ko'
-            ? '예약 및 자세한 정보를 위해 문의해 주세요'
-            : 'Contact us for appointments and detailed information'}
-        </p>
-        <Link
-          href={`/${locale}/contact`}
-          className="inline-flex items-center gap-2 bg-white text-blue-600 font-semibold px-8 py-3 rounded-xl hover:bg-blue-50 transition-colors"
-        >
-          {t('book')}
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
-      </div>
+      {/* Booking Form */}
+      <HospitalBookingForm hospitalName={getName(hospital)} locale={locale} />
     </main>
   )
 }
