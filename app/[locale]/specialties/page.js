@@ -25,16 +25,15 @@ export default async function SpecialtiesPage({ params }) {
           <Link
             key={s.id}
             href={`/${locale}/specialties/${s.id}`}
-            className="group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
+            className="group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block"
+            style={{ height: '14rem' }}
           >
-            <div className="h-56 overflow-hidden bg-slate-100">
-              <img
-                src={s.image}
-                alt={s.label}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            </div>
+            <img
+              src={s.image}
+              alt={s.label}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 p-5">
               <div className="font-bold text-white text-lg leading-tight">{getName(s)}</div>
