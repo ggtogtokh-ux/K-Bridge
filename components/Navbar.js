@@ -40,8 +40,8 @@ export default function Navbar() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/98 backdrop-blur-md shadow-md border-b border-slate-100'
-        : 'bg-white/90 backdrop-blur border-b border-slate-100/50'
+        ? 'bg-blue-950/95 backdrop-blur-md shadow-lg shadow-blue-950/30 border-b border-white/5'
+        : 'bg-blue-950/90 backdrop-blur border-b border-white/5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -57,8 +57,8 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-slate-800 text-base tracking-wide">경청</span>
-              <span className="text-[10px] font-semibold tracking-[0.2em] text-slate-400 uppercase">Inc</span>
+              <span className="font-bold text-white text-base tracking-wide">경청</span>
+              <span className="text-[10px] font-semibold tracking-[0.2em] text-blue-300 uppercase">Inc</span>
             </div>
           </Link>
 
@@ -68,25 +68,25 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={localePath(l.href)}
-                className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors relative group"
+                className="text-sm font-medium text-blue-200 hover:text-white transition-colors relative group"
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-blue-500 rounded-full transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-blue-400 rounded-full transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
           {/* Right: lang switcher + auth */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-1 bg-slate-100 rounded-full px-1 py-1">
+            <div className="flex items-center gap-1 bg-white/10 rounded-full px-1 py-1">
               {['mn', 'en', 'ko'].map((loc) => (
                 <button
                   key={loc}
                   onClick={() => switchLocale(loc)}
                   className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
                     locale === loc
-                      ? 'bg-blue-600 text-white shadow'
-                      : 'text-slate-500 hover:text-slate-800'
+                      ? 'bg-blue-500 text-white shadow'
+                      : 'text-blue-200 hover:text-white'
                   }`}
                 >
                   {loc.toUpperCase()}
@@ -95,13 +95,13 @@ export default function Navbar() {
             </div>
             <Link
               href={localePath('/login')}
-              className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+              className="text-sm font-medium text-blue-200 hover:text-white transition-colors"
             >
               {t('login')}
             </Link>
             <Link
               href={localePath('/signup')}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-200"
+              className="bg-white text-blue-700 hover:bg-blue-50 text-sm font-bold px-4 py-2 rounded-lg transition-all shadow-md"
             >
               {t('signup')}
             </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <div className={`w-5 h-0.5 bg-current transition-all duration-200 ${menuOpen ? 'rotate-45 translate-y-1.5' : 'mb-1'}`} />
@@ -121,24 +121,24 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white/98 backdrop-blur px-4 py-4 flex flex-col gap-3">
+        <div className="md:hidden border-t border-white/10 bg-blue-950 px-4 py-4 flex flex-col gap-3">
           {links.map((l) => (
             <Link
               key={l.href}
               href={localePath(l.href)}
               onClick={() => setMenuOpen(false)}
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 py-1 transition-colors"
+              className="text-sm font-medium text-blue-200 hover:text-white py-1 transition-colors"
             >
               {l.label}
             </Link>
           ))}
-          <div className="border-t border-slate-100 pt-3 flex items-center gap-2">
+          <div className="border-t border-white/10 pt-3 flex items-center gap-2">
             {['mn', 'en', 'ko'].map((loc) => (
               <button
                 key={loc}
                 onClick={() => { switchLocale(loc); setMenuOpen(false) }}
                 className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  locale === loc ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600'
+                  locale === loc ? 'bg-blue-500 text-white' : 'bg-white/10 text-blue-200'
                 }`}
               >
                 {loc.toUpperCase()}
@@ -146,10 +146,10 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex gap-2 pt-1">
-            <Link href={localePath('/login')} className="flex-1 text-center text-sm font-medium border border-slate-200 rounded-lg py-2 text-slate-700" onClick={() => setMenuOpen(false)}>
+            <Link href={localePath('/login')} className="flex-1 text-center text-sm font-medium border border-white/20 rounded-lg py-2 text-blue-200" onClick={() => setMenuOpen(false)}>
               {t('login')}
             </Link>
-            <Link href={localePath('/signup')} className="flex-1 text-center text-sm font-semibold bg-blue-600 text-white rounded-lg py-2" onClick={() => setMenuOpen(false)}>
+            <Link href={localePath('/signup')} className="flex-1 text-center text-sm font-bold bg-white text-blue-700 rounded-lg py-2" onClick={() => setMenuOpen(false)}>
               {t('signup')}
             </Link>
           </div>
