@@ -96,15 +96,9 @@ export default function Navbar() {
             </div>
             <Link
               href={localePath('/login')}
-              className="text-sm font-medium text-blue-200 hover:text-white transition-colors"
-            >
-              {t('login')}
-            </Link>
-            <Link
-              href={localePath('/signup')}
               className="bg-white text-blue-700 hover:bg-blue-50 text-sm font-bold px-4 py-2 rounded-lg transition-all shadow-md"
             >
-              {t('signup')}
+              {t('login')}
             </Link>
           </div>
 
@@ -147,11 +141,8 @@ export default function Navbar() {
             ))}
           </div>
           <div className="flex gap-2 pt-1">
-            <Link href={localePath('/login')} className="flex-1 text-center text-sm font-medium border border-white/20 rounded-lg py-2 text-blue-200" onClick={() => setMenuOpen(false)}>
+            <Link href={localePath('/login')} className="flex-1 text-center text-sm font-bold bg-white text-blue-700 rounded-lg py-2" onClick={() => setMenuOpen(false)}>
               {t('login')}
-            </Link>
-            <Link href={localePath('/signup')} className="flex-1 text-center text-sm font-bold bg-white text-blue-700 rounded-lg py-2" onClick={() => setMenuOpen(false)}>
-              {t('signup')}
             </Link>
           </div>
         </div>
