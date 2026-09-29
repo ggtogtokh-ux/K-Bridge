@@ -33,6 +33,8 @@ export default function Footer() {
               <li><Link href={lp('/hospitals')} className="hover:text-white transition-colors">{nav('hospitals')}</Link></li>
               <li><Link href={lp('/specialties')} className="hover:text-white transition-colors">{nav('specialties')}</Link></li>
               <li><Link href={lp('/pricing')} className="hover:text-white transition-colors">{nav('pricing')}</Link></li>
+              <li><Link href={lp('/reviews')} className="hover:text-white transition-colors">{nav('reviews')}</Link></li>
+              <li><Link href={lp('/about')} className="hover:text-white transition-colors">{nav('about')}</Link></li>
             </ul>
           </div>
 
