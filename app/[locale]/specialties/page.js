@@ -20,25 +20,27 @@ export default async function SpecialtiesPage({ params }) {
         <p className="text-slate-500 text-lg max-w-xl mx-auto">{t('subtitle')}</p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {specialties.map((s) => (
           <Link
             key={s.id}
             href={`/${locale}/specialties/${s.id}`}
-            className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all group"
+            className="group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300"
           >
-            <div className="h-36 overflow-hidden bg-slate-50">
+            <div className="h-56 overflow-hidden bg-slate-100">
               <img
                 src={s.image}
                 alt={s.label}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             </div>
-            <div className="p-4">
-              <div className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
-                {getName(s)}
+
+            <div className="absolute bottom-0 left-0 right-0 p-5">
+              <div className="font-bold text-white text-lg leading-tight">{getName(s)}</div>
+              <div className="text-white/60 text-sm mt-0.5 group-hover:text-white/90 transition-colors">
+                {s.labelKo}
               </div>
-              <div className="text-slate-400 text-xs mt-0.5">{s.labelKo}</div>
             </div>
           </Link>
         ))}
