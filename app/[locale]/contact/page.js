@@ -35,10 +35,10 @@ const contactMethods = [
       </svg>
     ),
     label: 'Email',
-    value: 'info@gyeongcheong.com',
+    value: 'km.bridge.26@gmail.com',
     bg: 'bg-blue-600',
     text: 'text-white',
-    href: 'mailto:info@gyeongcheong.com',
+    href: 'mailto:km.bridge.26@gmail.com',
   },
 ]
 
