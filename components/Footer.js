@@ -42,7 +42,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
             <ul className="space-y-2 text-sm">
               <li>KakaoTalk: k-bridge</li>
-              <li>WhatsApp: +82 10-0000-0000</li>
+              <li>WhatsApp: +82 10-4882-6264</li>
               <li><Link href={lp('/contact')} className="hover:text-white transition-colors">{nav('contact')}</Link></li>
             </ul>
           </div>

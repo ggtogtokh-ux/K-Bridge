@@ -23,10 +23,10 @@ const contactInfo = [
       </svg>
     ),
     label: 'WhatsApp',
-    value: '+82 10-0000-0000',
+    value: '+82 10-4882-6264',
     bg: 'bg-green-500',
     text: 'text-white',
-    href: 'https://wa.me/821000000000',
+    href: 'https://wa.me/821048826264',
   },
 ]
 
