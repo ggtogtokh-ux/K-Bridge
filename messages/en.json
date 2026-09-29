@@ -6,6 +6,7 @@
     "specialties": "Specialties",
     "pricing": "Pricing",
     "reviews": "Reviews",
+    "about": "About",
     "contact": "Contact",
     "login": "Login",
     "signup": "Sign Up"
@@ -88,6 +89,35 @@
       "back": "All Hospitals",
       "book": "Book Appointment",
       "details": "Details →"
+    },
+    "about": {
+      "badge": "About K-Bridge",
+      "title": "We Are Your Bridge\nto Korean Healthcare",
+      "subtitle": "K-Bridge was founded to make Korean medical care accessible to every Mongolian patient — with trusted coordinators, world-class hospitals, and full support from start to finish.",
+      "cta": "Get Free Consultation",
+      "stats": { "hospitals": "Hospitals", "patients": "Patients Helped", "specialties": "Specialties", "years": "Years of Service" },
+      "storyLabel": "Our Story",
+      "storyTitle": "How K-Bridge Was Born",
+      "storyP1": "K-Bridge was established to solve a real problem: Mongolian patients wanting world-class medical treatment in Korea had no trusted guide to help them navigate the system.",
+      "storyP2": "We built a team of Mongolian-speaking coordinators based in Seoul who know both cultures — people who make you feel at home even when you're far from it.",
+      "storyP3": "Today we work with 50+ certified Korean hospitals across oncology, cardiology, orthopedics, plastic surgery, dental care, and more.",
+      "cardTitle": "Connecting Two Nations Through Healthcare",
+      "cardDesc": "From Ulaanbaatar to Seoul — we handle everything so you can focus on your health.",
+      "valuesLabel": "Our Values",
+      "valuesTitle": "What We Stand For",
+      "servicesLabel": "What We Do",
+      "servicesTitle": "Our Core Services",
+      "servicesSubtitle": "Everything you need for a successful medical journey to Korea.",
+      "svc1Title": "Hospital Matching & Booking",
+      "svc1Desc": "We match you with the right hospital based on your diagnosis, budget, and preferences.",
+      "svc2Title": "Mongolian Coordinator",
+      "svc2Desc": "A dedicated Mongolian-speaking coordinator accompanies you through every step.",
+      "svc3Title": "Full Travel Support",
+      "svc3Desc": "Visa, accommodation, airport pickup, and all logistics handled for you.",
+      "ctaTitle": "Ready to Start Your Journey?",
+      "ctaSubtitle": "Contact us today for a free consultation with our team.",
+      "ctaBtn": "Get Free Consultation",
+      "ctaBtn2": "View Hospitals"
     }
   }
 }

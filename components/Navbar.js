@@ -28,6 +28,7 @@ export default function Navbar() {
     { href: '/specialties', label: t('specialties') },
     { href: '/pricing', label: t('pricing') },
     { href: '/reviews', label: t('reviews') },
+    { href: '/about', label: t('about') },
     { href: '/contact', label: t('contact') },
   ]
 
