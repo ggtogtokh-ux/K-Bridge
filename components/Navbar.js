@@ -16,7 +16,7 @@ export default function Navbar() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -61,66 +61,70 @@ export default function Navbar() {
   const avatarLetter = user?.email?.[0]?.toUpperCase() ?? '?'
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled
-        ? 'bg-blue-950/95 backdrop-blur-md shadow-lg shadow-blue-950/30 border-b border-white/5'
-        : 'bg-blue-950/90 backdrop-blur border-b border-white/5'
+        ? 'bg-black/90 backdrop-blur-xl border-b border-white/8'
+        : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link href={localePath('/')} className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10 animate-bird-float">
-              <Image src="/logo-bird.png" alt="경청 INC" fill className="object-contain" />
+          <Link href={localePath('/')} className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12">
+              <Image
+                src="/logo-main.png"
+                alt="경청 INC"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-white text-base tracking-wide">경청</span>
-              <span className="text-[10px] font-semibold tracking-[0.2em] text-blue-300 uppercase">Inc</span>
+              <span className="font-bold text-white text-lg tracking-widest">경청</span>
+              <span className="text-[9px] font-semibold tracking-[0.3em] text-white/40 uppercase">Gyeongcheong INC</span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={localePath(l.href)}
-                className="text-sm font-medium text-blue-200 hover:text-white transition-colors relative group"
+                className="text-xs font-semibold text-white/60 hover:text-white transition-colors uppercase tracking-widest"
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-blue-400 rounded-full transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
-          {/* Right: lang switcher + auth */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-1 bg-white/10 rounded-full px-1 py-1">
+          {/* Right */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="flex items-center gap-0.5">
               {['mn', 'en', 'ko'].map((loc) => (
                 <button
                   key={loc}
                   onClick={() => switchLocale(loc)}
-                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 ${
-                    locale === loc ? 'bg-blue-500 text-white shadow' : 'text-blue-200 hover:text-white'
+                  className={`px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest transition-all ${
+                    locale === loc ? 'text-white' : 'text-white/35 hover:text-white/60'
                   }`}
                 >
-                  {loc.toUpperCase()}
+                  {loc}
                 </button>
               ))}
             </div>
 
             {user ? (
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2 bg-white/10 rounded-xl px-3 py-1.5">
-                  <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold text-white">
+                <div className="flex items-center gap-2 border border-white/15 rounded-lg px-3 py-1.5">
+                  <div className="w-5 h-5 rounded-full bg-[#8B7355] flex items-center justify-center text-[10px] font-bold text-white">
                     {avatarLetter}
                   </div>
-                  <span className="text-blue-100 text-xs max-w-[120px] truncate">{user.email}</span>
+                  <span className="text-white/60 text-xs max-w-[100px] truncate">{user.email}</span>
                 </div>
                 <button
                   onClick={handleSignOut}
-                  className="bg-white/10 hover:bg-white/20 text-blue-100 text-xs font-semibold px-3 py-1.5 rounded-xl transition-colors"
+                  className="text-[10px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors"
                 >
                   {locale === 'mn' ? 'Гарах' : locale === 'ko' ? '로그아웃' : 'Sign out'}
                 </button>
@@ -128,7 +132,7 @@ export default function Navbar() {
             ) : (
               <Link
                 href={localePath('/login')}
-                className="bg-white text-blue-700 hover:bg-blue-50 text-sm font-bold px-4 py-2 rounded-lg transition-all shadow-md"
+                className="border border-white/25 hover:border-white/60 text-white text-[10px] font-bold uppercase tracking-widest px-5 py-2.5 transition-all hover:bg-white/5"
               >
                 {t('login')}
               </Link>
@@ -137,64 +141,55 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <div className={`w-5 h-0.5 bg-current transition-all duration-200 ${menuOpen ? 'rotate-45 translate-y-1.5' : 'mb-1'}`} />
-            <div className={`w-5 h-0.5 bg-current transition-all duration-200 ${menuOpen ? 'opacity-0' : 'mb-1'}`} />
-            <div className={`w-5 h-0.5 bg-current transition-all duration-200 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            <div className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <div className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <div className={`w-6 h-px bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-blue-950 px-4 py-4 flex flex-col gap-3">
+        <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/8 px-6 py-8 flex flex-col gap-6">
           {links.map((l) => (
             <Link
               key={l.href}
               href={localePath(l.href)}
               onClick={() => setMenuOpen(false)}
-              className="text-sm font-medium text-blue-200 hover:text-white py-1 transition-colors"
+              className="text-sm font-semibold text-white/60 hover:text-white uppercase tracking-widest transition-colors"
             >
               {l.label}
             </Link>
           ))}
-          <div className="border-t border-white/10 pt-3 flex items-center gap-2">
+          <div className="border-t border-white/10 pt-6 flex items-center gap-4">
             {['mn', 'en', 'ko'].map((loc) => (
               <button
                 key={loc}
                 onClick={() => { switchLocale(loc); setMenuOpen(false) }}
-                className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  locale === loc ? 'bg-blue-500 text-white' : 'bg-white/10 text-blue-200'
+                className={`text-xs font-bold uppercase tracking-widest ${
+                  locale === loc ? 'text-white' : 'text-white/35'
                 }`}
               >
-                {loc.toUpperCase()}
+                {loc}
               </button>
             ))}
           </div>
-
           {user ? (
-            <div className="flex flex-col gap-2 pt-1">
-              <div className="flex items-center gap-2 bg-white/10 rounded-xl px-3 py-2">
-                <div className="w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center text-sm font-bold text-white">
-                  {avatarLetter}
-                </div>
-                <span className="text-blue-100 text-sm truncate">{user.email}</span>
-              </div>
-              <button
-                onClick={() => { handleSignOut(); setMenuOpen(false) }}
-                className="w-full text-center text-sm font-semibold bg-white/10 text-blue-100 rounded-xl py-2"
-              >
-                {locale === 'mn' ? 'Гарах' : locale === 'ko' ? '로그아웃' : 'Sign out'}
+            <div className="flex flex-col gap-3">
+              <span className="text-white/50 text-sm">{user.email}</span>
+              <button onClick={() => { handleSignOut(); setMenuOpen(false) }}
+                className="text-xs font-bold uppercase tracking-widest text-white/40">
+                {locale === 'mn' ? 'Гарах' : 'Sign out'}
               </button>
             </div>
           ) : (
-            <div className="flex gap-2 pt-1">
-              <Link href={localePath('/login')} className="flex-1 text-center text-sm font-bold bg-white text-blue-700 rounded-lg py-2" onClick={() => setMenuOpen(false)}>
-                {t('login')}
-              </Link>
-            </div>
+            <Link href={localePath('/login')} onClick={() => setMenuOpen(false)}
+              className="border border-white/25 text-white text-xs font-bold uppercase tracking-widest px-5 py-3 text-center">
+              {t('login')}
+            </Link>
           )}
         </div>
       )}
